@@ -62,7 +62,7 @@
 
 		//and add it to the map
 		L.geoJSON(geojsonFeature, {
-			pointToLaayer:function(feature, latlng) {
+			pointToLayer:function(feature, latlng) {
 			return L.marker(latlng, {icon:testMarkerPink});
 		  	}
 		}).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+" "+geojsonFeature.properties.popupContent+"<b>");
