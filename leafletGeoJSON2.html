@@ -14,11 +14,7 @@
 	<style type="text/css">
 		#mapid{height:180px;}
 	</style>
-	
-	<!-- the following links incorporate the CSS required for custom icon creation -->
-	<link rel="stylesheet" href="ionicons.min.css">
-	<link rel="stylesheet" href="leaflet.awesome-markers.css">
-	<script src="leaflet.awesome-markers.js"></script>
+
 </head>
 <body>
 	<!--the mapid div will hold the map -->
@@ -27,7 +23,7 @@
 	<!--the following script will load the map and set the default view and zoom, as well as loading the basemap tiles-->
 	<script>
 		//load the map
-		var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+		var mymap = L.map('mapid');
 
 		//load the tiles
 
