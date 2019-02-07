@@ -14,6 +14,49 @@
 	<style type="text/css">
 		#mapid{height:180px;}
 	</style>
+	
+	<script>
+		
+		//create variable that will hold the XMLHttpRequest()
+		var client;
+
+		//create a variable to hold the layer itself
+		var earthquakelayer;
+
+		//create the code to get the earthquakes data using an XMLHttpRequest
+		function getEarthquakes(){
+			client=new XMLHttpRequest();
+		
+		client.open('GET','https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson');
+			client.onreadystatechange=earthquakeResponse;
+			client.send();
+		}
+
+		//create the code to wait for the response from the data server, and process the response once received
+		//this function listens our fo the server to say the data is ready (has state 4)
+		function earthquakeResponse(){
+			if(client.readyState==4){
+				var earthquakedata=client.responseText;
+				loadEarthquakelayer(earthquakedata);
+			}
+		}
+
+
+		//define a global variable to hold the layer so that we can use it later on
+		var earthquakelayer;
+		//convert the received data-which is text-to JSON format and add it to the map
+		function loadEarthquakelayer(earthquakedata){
+			//convert the text to JSON
+			var earthquakejson=JSON.parse(earthquakedata);
+
+			//add the JSON layer onto the map-it will appear using the default icons
+			earthquakelayer=L.geoJson(earthquakejson).addTo(mymap);
+	
+			//change the map zoom so that all the data is shown
+			mymap.fitBounds(earthquakelayer.getBounds());
+		}
+
+	</script>
 </head>
 <body>
 	<!--the mapid div will hold the map -->
@@ -21,6 +64,10 @@
 
 	<!--the following script will load the map and set the default view and zoom, as well as loading the basemap tiles-->
 	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			getEarthquakes();
+		},false);		
+
 		//load the map
 		var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
