@@ -24,10 +24,10 @@
 		function loadData(layername){
 			//call the getData code
 			//keep the alert message so that we know something is happening
-			if(layername=="busstoplayer"){
+			if(layername=="earthquake"){
 				alert("Loading Earthquakes");
 				}
-				if(layername=="busstoplayer"){
+				if(layername=="busstop"){
 					alert("Loading Bus Stops");
 				}
 			
@@ -41,10 +41,10 @@
 			client=new XMLHttpRequest();
 			//depending on the layername, we get different URLs
 			var url;
-			if(layername=="earthquakelayer"){
+			if(layername=="earthquakes"){
 				url="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson"
 				}
-				if(layername=="busstoplayer"){
+				if(layername=="busstops"){
 					url="https://developer.cege.ucl.ac.uk:31076/cege0043-week2/busstops.geojson"
 				}
 		
@@ -66,7 +66,7 @@
 		//convert the received data-which is text-to JSON format and add it to the map
 		function loadLayer(geoJSONData){
 			//which layer did we actually load?
-			if(geoJSONData.indexOf("earthquakelayer")>0){
+			if(geoJSONData.indexOf("earthquake")>0){
 				var loadingEarthquakes=true;
 			}
 			if(geoJSONData.indexOf("IIT_METHOD")>0){
@@ -102,10 +102,11 @@
 <body>
 	<!--the mapid div will hold the map -->
 	<div id="mapid" style="width: 600px; height: 400px;"></div>
-	<button id="loadEarthquakeData" name="loadEarthquakeData" onclick="loadData(earthquakelayer)">Click here to load the earthquake data</button>
-	<button id="loadBusstopsData" name="loadBusstopsData" onclick="loadData(busstoplayer)">Click here to load the bus stops data</button>
-	<button id="removeEarthquakeData" name="removeEarthquakeData" onclick="removeEarthquakeData()">Click here to remove the Earthquake data</button>
-	
+	<div>
+		<button id="loadEarthquakeData" name="loadEarthquakeData" onclick="loadData(earthquakelayer)">Click here to load the earthquake data</button>
+		<button id="loadBusstopsData" name="loadBusstopsData" onclick="loadData(busstoplayer)">Click here to load the bus stops data</button>
+		<button id="removeEarthquakeData" name="removeEarthquakeData" onclick="removeEarthquakeData()">Click here to remove the Earthquake data</button>
+	</div>
 
 	<!--the following script will load the map and set the default view and zoom, as well as loading the basemap tiles-->
 	<script>
