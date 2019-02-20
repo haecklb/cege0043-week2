@@ -16,6 +16,11 @@
 	</style>
 
 	<script>
+		//create a variable for each of the layers we want to load/remove
+		var earthquakelayer;
+		var busstoplayer;
+
+
 		function loadData(layername){
 			//call the getData code
 			//keep the alert message so that we know something is happening
@@ -28,14 +33,9 @@
 			
 		}
 		
-		//create a variable for each of the layers we want to load/remove
-		var earthquakelayer;
-		var busstoplayer;
-
 		//create variable that will hold the XMLHttpRequest()
 		var client;
 
-		
 		//create the code to get the earthquakes data using an XMLHttpRequest
 		function getData(layername){
 			client=new XMLHttpRequest();
