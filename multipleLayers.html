@@ -91,9 +91,16 @@
 			}
 		}
 
-		function removeEarthquakeData(){
-			alert("Earthquake data will be removed");
-			mymap.removeLayer(earthquakelayer);
+		function removeData(layername){
+			if(layername=="earthquakes"){
+				alert("Earthquake data will be removed");
+				mymap.removeLayer(earthquakelayer);
+			}	
+			if(layername=="busstops"){
+				alert("Bus stop data will be removed");
+				mymap.removeLayer(busstoplayer);
+			}
+			
 		}
 		
 
@@ -107,7 +114,8 @@
 	<div>
 		<button id="loadEarthquakeData" name="loadEarthquakeData" onclick="loadData('earthquakes')">Click here to load the earthquake data</button>
 		<button id="loadBusstopsData" name="loadBusstopsData" onclick="loadData('busstops')">Click here to load the bus stops data</button>	
-		<button id="removeEarthquakeData" name="removeEarthquakeData" onclick="removeEarthquakeData()">Click here to remove the Earthquake data</button>
+		<button id="removeEarthquakeData" name="removeEarthquakeData" onclick="removeData('earthquakes')">Click here to remove the Earthquake data</button>
+		<button id="removeBusstopsData" name="removeBusstopsData" onclick="removeData('busstops')">Click here to remove the bus stops data</button>
 	</div>
 
 	<!--the following script will load the map and set the default view and zoom, as well as loading the basemap tiles-->
