@@ -22,32 +22,33 @@
 			if(layername=="earthquakes"){
 				alert("Loading Earthquakes");
 			}
-				if(layername=="busstops"){
-					alert("Loading Bus Stops");
-				}
+			if(layername=="busstops"){
+				alert("Loading Bus Stops");
+			}
 			
 		}
 		
-		//create variable that will hold the XMLHttpRequest()
-		var client;
-
 		//create a variable for each of the layers we want to load/remove
 		var earthquakelayer;
 		var busstoplayer;
 
+		//create variable that will hold the XMLHttpRequest()
+		var client;
+
+		
 		//create the code to get the earthquakes data using an XMLHttpRequest
 		function getData(layername){
 			client=new XMLHttpRequest();
-		//depending on the layername, we get different URLs
-		var url;
-		if(layername=="earthquakes"){
-			url="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson"
-			}
-			if(layername=="busstops"){
-				url="https://developer.cege.ucl.ac.uk:31076/cege0043-week2/busstops.geojson"
-			}
+			//depending on the layername, we get different URLs
+			var url;
+			if(layername=="earthquakes"){
+				url="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson"
+				}
+				if(layername=="busstops"){
+					url="https://developer.cege.ucl.ac.uk:31076/cege0043-week2/busstops.geojson"
+				}
 		
-		client.open('GET',url);
+			client.open('GET',url);
 			client.onreadystatechange=dataResponse;
 			client.send();
 		}
@@ -101,8 +102,8 @@
 <body>
 	<!--the mapid div will hold the map -->
 	<div id="mapid" style="width: 600px; height: 400px;"></div>
-	<button id="loadEarthquakeData" name="loadEarthquakeData" onclick="loadData(earthquakelayer)">Click here to load the earthquake data</button>
-	<button id="loadBusstopsData" name="loadBusstopsData" onclick="loadData(busstoplayer)">Click here to load the bus stops data</button>
+	<button id="loadEarthquakeData" name="loadEarthquakeData" onclick="loadData(earthquakes)">Click here to load the earthquake data</button>
+	<button id="loadBusstopsData" name="loadBusstopsData" onclick="loadData(busstops)">Click here to load the bus stops data</button>
 	<button id="removeEarthquakeData" name="removeEarthquakeData" onclick="removeEarthquakeData()">Click here to remove the Earthquake data</button>
 	
 
