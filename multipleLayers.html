@@ -24,10 +24,10 @@
 		function loadData(layername){
 			//call the getData code
 			//keep the alert message so that we know something is happening
-			if(layername=="earthquake"){
+			if(layername=="busstoplayer"){
 				alert("Loading Earthquakes");
 				}
-				if(layername=="busstop"){
+				if(layername=="busstoplayer"){
 					alert("Loading Bus Stops");
 				}
 			
@@ -41,10 +41,10 @@
 			client=new XMLHttpRequest();
 			//depending on the layername, we get different URLs
 			var url;
-			if(layername=="earthquakes"){
+			if(layername=="earthquakelayer"){
 				url="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson"
 				}
-				if(layername=="busstops"){
+				if(layername=="busstoplayer"){
 					url="https://developer.cege.ucl.ac.uk:31076/cege0043-week2/busstops.geojson"
 				}
 		
@@ -66,7 +66,7 @@
 		//convert the received data-which is text-to JSON format and add it to the map
 		function loadLayer(geoJSONData){
 			//which layer did we actually load?
-			if(geoJSONData.indexOf("earthquake")>0){
+			if(geoJSONData.indexOf("earthquakelayer")>0){
 				var loadingEarthquakes=true;
 			}
 			if(geoJSONData.indexOf("IIT_METHOD")>0){
