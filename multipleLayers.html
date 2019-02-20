@@ -27,7 +27,8 @@
 			//keep the alert message so that we know something is happening
 			if(layername=="earthquakes"){
 				alert("Loading Earthquakes");
-			} else if(layername=="busstops"){
+			}
+			if(layername=="busstops"){
 				alert("Loading Bus Stops");
 			}
 			
@@ -43,10 +44,10 @@
 			var url;
 			if(layername=="earthquakes"){
 				url="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson"
-				}
-				if(layername=="busstops"){
+			}
+			if(layername=="busstops"){
 					url="https://developer.cege.ucl.ac.uk:31076/cege0043-week2/busstops.geojson"
-				}
+			}
 		
 			client.open('GET',url);
 			client.onreadystatechange=dataResponse;
@@ -103,12 +104,8 @@
 	<!--the mapid div will hold the map -->
 	<div id="mapid" style="width: 600px; height: 400px;"></div>
 	<div>
-		<button id="loadEarthquakeData" name="loadEarthquakeData" onclick="loadData(layername=earthquakes)">Click here to load the earthquake data</button>
-	</div>
-	<div>	
-		<button id="loadBusstopsData" name="loadBusstopsData" onclick="loadData(layername=busstops)">Click here to load the bus stops data</button>
-	</div>	
-	<div>	
+		<button id="loadEarthquakeData" name="loadEarthquakeData" onclick="loadData('earthquakes')">Click here to load the earthquake data</button>
+		<button id="loadBusstopsData" name="loadBusstopsData" onclick="loadData('busstops')">Click here to load the bus stops data</button>	
 		<button id="removeEarthquakeData" name="removeEarthquakeData" onclick="removeEarthquakeData()">Click here to remove the Earthquake data</button>
 	</div>
 
