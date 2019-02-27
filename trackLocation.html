@@ -56,7 +56,9 @@
 			id:'mapbox.streets'
 		}).addTo(mymap);
 
-		L.marker([lat, lng]).addTo(mymap);
+		var latlng = new L.LatLng(position.coords.latitude, position.coords.longitude);
+
+		L.marker(latlng).addTo(mymap);
 		
 	</script>
 </body>
