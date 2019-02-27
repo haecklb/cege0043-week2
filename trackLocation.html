@@ -52,11 +52,7 @@
 			id:'mapbox.streets'
 		}).addTo(mymap);
 
-		L.geoJSON(showPosition,{
-			pointToLayer:function(feature, latlng) {
-			return L.marker(latlng, {icon:testMarkerPink});
-			}
-		}).addTo(mymap);
+		L.marker([52, 0]).addTo(mymap);
 		
 	</script>
 </body>
