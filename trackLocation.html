@@ -28,7 +28,7 @@
 		function showPosition(position){
 			document.getElementById('showLocation').innerHTML="Latitude:"+position.coords.latitude+"<br>Longitude:"+position.coords.longitude;
 			 var latlng = new L.LatLng(position.coords.latitude, position.coords.longitude);
-			L.marker(latlng).addTo(mymap).bindPopup(latlng);
+			L.marker(latlng).addTo(mymap).bindPopup("Hi");
 			
 		}
 	</script>
