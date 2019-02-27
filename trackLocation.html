@@ -28,7 +28,9 @@
 		function showPosition(position){
 			document.getElementById('showLocation').innerHTML="Latitude:"+position.coords.latitude+"<br>Longitude:"+position.coords.longitude;
 			 var latlng = new L.LatLng(position.coords.latitude, position.coords.longitude);
-			L.marker(latlng).addTo(mymap).bindPopup("Hi");
+			L.marker(latlng).addTo(mymap);
+			//could add a popup message with the latlng data
+			//could change color of most recent point
 			
 		}
 	</script>
