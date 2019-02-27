@@ -29,8 +29,7 @@
 
 		function showPosition(position){
 			document.getElementById('showLocation').innerHTML="Latitude:"+position.coords.latitude+"<br>Longitude:"+position.coords.longitude;
-			lat=position.coords.latitude;
-			lng=position.coords.longitude;
+			var latlng = new L.LatLng(position.coords.latitude, position.coords.longitude);
 			//ADAPT  CODE TO SHOW CURRENT POSTION ON A MAP--CREATING A NEW POINT EVERY TIME SHOWPOSITION IS CALLED
 		}
 	</script>
@@ -55,8 +54,6 @@
 				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 			id:'mapbox.streets'
 		}).addTo(mymap);
-
-		var latlng = new L.LatLng(position.coords.latitude, position.coords.longitude);
 
 		L.marker(latlng).addTo(mymap);
 		
