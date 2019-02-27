@@ -28,8 +28,8 @@
 		function showPosition(position){
 			document.getElementById('showLocation').innerHTML="Latitude:"+position.coords.latitude+"<br>Longitude:"+position.coords.longitude;
 			 var latlng = new L.LatLng(position.coords.latitude, position.coords.longitude);
-			L.marker(latlng).addTo(mymap);
-			//ADAPT  CODE TO SHOW CURRENT POSTION ON A MAP--CREATING A NEW POINT EVERY TIME SHOWPOSITION IS CALLED
+			L.marker(latlng).addTo(mymap).bindPopup(latlng);
+			
 		}
 	</script>
 </head>
