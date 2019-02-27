@@ -24,11 +24,11 @@
 				document.getElementById('showLocation').innerHTML="Geolocation is not supported by this browser.";
 			}
 		}
-		var latlng;
 
 		function showPosition(position){
 			document.getElementById('showLocation').innerHTML="Latitude:"+position.coords.latitude+"<br>Longitude:"+position.coords.longitude;
-			latlng = new L.LatLng(position.coords.latitude, position.coords.longitude);
+			 var latlng = new L.LatLng(position.coords.latitude, position.coords.longitude);
+			L.marker(latlng).addTo(mymap);
 			//ADAPT  CODE TO SHOW CURRENT POSTION ON A MAP--CREATING A NEW POINT EVERY TIME SHOWPOSITION IS CALLED
 		}
 	</script>
@@ -54,7 +54,7 @@
 			id:'mapbox.streets'
 		}).addTo(mymap);
 
-		L.marker(latlng).addTo(mymap);
+		
 		
 	</script>
 </body>
